@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         acoesComponentes();
     }
 
-    public void acoesComponentes(){
+    private void acoesComponentes(){
         botaoProdutos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
