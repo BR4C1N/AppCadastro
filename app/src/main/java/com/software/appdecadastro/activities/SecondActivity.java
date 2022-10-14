@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.software.appdecadastro.R;
+import com.software.appdecadastro.fragments.CadastrarClientesFragment;
+import com.software.appdecadastro.fragments.CadastrarFornecedoresFragment;
+import com.software.appdecadastro.fragments.CadastrarProdutosFragment;
+import com.software.appdecadastro.fragments.ListagemClientesFragment;
+import com.software.appdecadastro.fragments.ListagemFornecedoresFragment;
+import com.software.appdecadastro.fragments.ListagemProdutosFragment;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -37,17 +43,17 @@ public class SecondActivity extends AppCompatActivity {
             }
 
             case 0: {
-                transaction.add(R.id.fragmentoPrincipal, );
+                transaction.add(R.id.fragmentoPrincipal, new ListagemProdutosFragment());
                 break;
             }
 
             case 1: {
-                transaction.add(R.id.fragmentoPrincipal, );
+                transaction.add(R.id.fragmentoPrincipal, new ListagemClientesFragment());
                 break;
             }
 
             case 2: {
-                transaction.add(R.id.fragmentoPrincipal, );
+                transaction.add(R.id.fragmentoPrincipal, new ListagemFornecedoresFragment());
                 break;
             }
         }
@@ -63,14 +69,20 @@ public class SecondActivity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (tipoOperacao) {
                     case 0: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentoPrincipal, new ListagemProdutosFragment()).commit();
+
                         break;
                     }
 
                     case 1: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentoPrincipal, new ListagemClientesFragment()).commit();
+
                         break;
                     }
 
                     case 2: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentoPrincipal, new ListagemFornecedoresFragment()).commit();
+
                         break;
                     }
                 }
@@ -82,14 +94,20 @@ public class SecondActivity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (tipoOperacao) {
                     case 0: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentoPrincipal, new CadastrarProdutosFragment()).commit();
+
                         break;
                     }
 
                     case 1: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentoPrincipal, new CadastrarClientesFragment()).commit();
+
                         break;
                     }
 
                     case 2: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentoPrincipal, new CadastrarFornecedoresFragment()).commit();
+
                         break;
                     }
                 }
