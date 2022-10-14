@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.software.appdecadastro.R;
+import com.software.appdecadastro.dataBase.DBHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DBHelper db = new DBHelper(MainActivity.this);
 
         botaoProdutos = findViewById(R.id.botaoProdutos);
         botaoClientes = findViewById(R.id.botaoClientes);
