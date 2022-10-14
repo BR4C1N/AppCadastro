@@ -1,8 +1,10 @@
-package com.software.appdecadastro;
+package com.software.appdecadastro.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.software.appdecadastro.R;
 
 public class MainActivity extends AppCompatActivity {
 
