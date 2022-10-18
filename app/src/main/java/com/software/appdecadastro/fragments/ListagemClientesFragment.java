@@ -1,5 +1,7 @@
 package com.software.appdecadastro.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.software.appdecadastro.R;
 import com.software.appdecadastro.dataBase.ClienteDB;
@@ -52,8 +55,31 @@ public class ListagemClientesFragment extends Fragment {
         listaDados.setAdapter(adapter);
 
         listarDadosClientes();
+        acoesComponentes();
 
         return view;
+    }
+
+    private void acoesComponentes() {
+        listaDados.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                new AlertDialog.Builder(view.getContext())
+                        .setMessage("Deseja realmente remover?")
+                        .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int j) {
+                                clienteDB.remover(listaClientes.get(i).getId());
+
+                                listarDadosClientes();
+                                Toast.makeText(getActivity(), "Removido com Sucesso!", Toast.LENGTH_LONG);
+                            }
+                        })
+                        .setNegativeButton("Cancelar", null)
+                        .create().show();
+                return (false);
+            }
+        });
     }
 
     protected static void listarDadosClientes() {
