@@ -48,4 +48,8 @@ public class Fornecedor {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return (String.format("%s | %s | %s | %s", nomeFantasia, CNPJ, telefone, email));
+    }
 }

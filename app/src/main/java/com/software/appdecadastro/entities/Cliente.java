@@ -47,5 +47,9 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
+    @Override
+    public String toString() {
+        return (String.format("%s | %s | %s | %s", nome, CPF, telefone, email));
+    }
 }

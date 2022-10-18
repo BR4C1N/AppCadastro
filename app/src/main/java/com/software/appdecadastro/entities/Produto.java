@@ -57,4 +57,8 @@ public class Produto {
         this.preco = preco;
     }
 
+    @Override
+    public String toString() {
+        return (String.format("%s | %s | %s | %s | %s", nome, marca, quantidade, dataValidade, preco));
+    }
 }
